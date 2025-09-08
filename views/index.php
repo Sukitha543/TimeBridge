@@ -22,8 +22,8 @@
     <nav>
       <ul class="flex space-x-8 text-gray-700 font-medium">
         <li><a href="#" class="hover:text-black">Home</a></li>
-        <li><a href="#" class="hover:text-black">About Us</a></li>
-        <li><a href="#" class="hover:text-black">Login</a></li>
+        <li><a href="aboutus.php" class="hover:text-black">About Us</a></li>
+        <li><a href="login.php" class="hover:text-black">Login</a></li>
       </ul>
     </nav>
   </div>
@@ -39,7 +39,7 @@
         Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. 
         Elit sunt amet fugiat veniam occaecat fugiat aliqua.
       </p>
-      <a href="#" class="inline-block bg-black text-white px-6 py-3 rounded hover:bg-gray-900">
+      <a href="login.php" class="inline-block bg-black text-white px-6 py-3 rounded hover:bg-gray-900">
         Login to Browse Our Products
       </a>
     </div>
@@ -54,8 +54,8 @@
   <footer class="bg-black text-white text-center px-8 py-10 space-y-4">
     <!-- Links -->
     <div class="flex justify-center space-x-8">
-      <a href="#" class="hover:underline">Home</a>
-      <a href="#" class="hover:underline">About Us</a>
+      <a href="index.php" class="hover:underline">Home</a>
+      <a href="aboutus.php" class="hover:underline">About Us</a>
     </div>
 
     <!-- Social Icons -->
