@@ -21,7 +21,7 @@
                     </div>
                     <h1 class="text-3xl font-bold mb-2 text-center lg:text-left">Sign in to your account</h1>
                     <p class="text-gray-600 mb-8 text-center lg:text-left">
-                        Not a member? <a href="#" class="text-blue-600 hover:underline">Create an Account</a>
+                        Not a member? <a href="register.php" class="text-blue-600 hover:underline">Create an Account</a>
                     </p>
                     <form class="space-y-6">
                         <div>
@@ -48,24 +48,8 @@
             </div>
         </div>
     </main>
-
-    <!-- Footer -->
-  <footer class="bg-black text-white text-center px-8 py-10 space-y-4">
-    <!-- Links -->
-    <div class="flex justify-center space-x-8">
-      <a href="index.php" class="hover:underline">Home</a>
-      <a href="aboutus.php" class="hover:underline">About Us</a>
-    </div>
-
-    <!-- Social Icons -->
-    <div class="flex justify-center space-x-6 text-2xl">
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
-
-    <!-- Contact -->
-    <p>Colombo 03 - 41 Galle Road &nbsp;&nbsp; Tel: +94 11 2335787 &nbsp;&nbsp; Email: info@TimeBridge.lk</p>
-    <p class="text-gray-400 text-sm">© 2025 TimeBridge Inc. All rights reserved.</p>
-  </footer>
+    <?php
+    require_once("../includes/footer.php"); 
+    ?>
 </body>
 </html>
