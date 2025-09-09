@@ -1,5 +1,6 @@
 <?php
-require_once("../includes/header.php");
+    $title = "TimeBridge - Register";
+    require_once("../includes/meta.php");
 ?>
 <body class="bg-gray-100 text-gray-800 font-sans">
 

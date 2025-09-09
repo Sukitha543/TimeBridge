@@ -1,5 +1,7 @@
 <?php
-  require_once("../includes/header.php");
+   $title = "AboutUs";
+   require_once("../includes/meta.php");
+   require_once("../includes/header.php");
 ?>
     <section class="flex flex-col lg:flex-row items-center lg:items-start p-8 lg:p-16">
         <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-12">
