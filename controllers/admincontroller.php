@@ -17,25 +17,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Basic validations
     if(empty($email) || empty($username) || empty($password) || empty($confirm_password)){
         $_SESSION['error'] = "All fields are required!";
-        header("Location: ../views/adminRegister.php");
+        redirectTo('admin_register', $routes);
         exit();
     }
 
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
         $_SESSION['error'] = "Invalid email format!";
-        header("Location: ../views/adminRegister.php");
+        redirectTo('admin_register', $routes);
         exit();
     }
 
     if($password !== $confirm_password){
         $_SESSION['error'] = "Passwords do not match!";
-        header("Location: ../views/adminRegister.php");
+        redirectTo('admin_register', $routes);
         exit();
     }
 
     if(strlen($password) < 6){
         $_SESSION['error'] = "Password must be at least 6 characters!";
-        header("Location: ../views/adminRegister.php");
+        redirectTo('admin_register', $routes);
         exit();
     }
 
@@ -44,5 +44,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $admin->register();
 
     // Redirect back to form
-    header("Location: ../views/adminRegister.php");
+    redirectTo('admin_register', $routes);
 }

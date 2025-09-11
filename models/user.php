@@ -1,5 +1,5 @@
 <?php
-require_once "../models/dbh_config.php";
+require_once "dbh_config.php";
 abstract class User extends Dbh
 {
     protected $username;
@@ -16,8 +16,6 @@ abstract class User extends Dbh
 
    
     abstract protected function register();
-    public function login(){
-        
-    }
-
+    
 }
+
