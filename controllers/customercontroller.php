@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once "../models/dbh_config.php";
+require_once "../routes.php";
 require_once "../models/customer.php";
 
 // Function to sanitize inputs
