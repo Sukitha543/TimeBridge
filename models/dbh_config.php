@@ -3,7 +3,7 @@
 class Dbh {
 
 private $host = 'localhost';
-private $dbname = 'myfirstdatabase';
+private $dbname = 'TimeBridge';
 private $dbusername = 'root';
 private $dbpassword = '';
 

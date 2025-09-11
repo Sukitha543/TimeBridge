@@ -1,6 +1,17 @@
 <?php
     $title = "TimeBridge - Customer Register";
     require_once("../includes/meta.php");
+    session_start();
+
+    // Function to display session messages
+    function getSessionMessage($type){
+        if(isset($_SESSION[$type])){
+            $msg = $_SESSION[$type];
+            unset($_SESSION[$type]);
+            return $msg;
+        }
+        return false;
+}
 ?>
 <body class="bg-gray-100 text-gray-800 font-sans flex flex-col min-h-screen">
 <main class="flex-grow flex items-center justify-center p-4">
@@ -12,31 +23,38 @@
                     </div>
 
                     <h1 class="text-3xl font-bold mb-8 text-center">Customer Register</h1>
-                    
-                    <form class="space-y-4">
+
+                        <!-- Show session messages -->
+                    <?php if ($msg = getSessionMessage("error")): ?>
+                        <div class="bg-red-100 text-red-700 p-3 rounded mb-4"><?= $msg ?></div>
+                    <?php elseif ($msg = getSessionMessage("success")): ?>
+                        <div class="bg-green-100 text-green-700 p-3 rounded mb-4"><?= $msg ?></div>
+                    <?php endif; ?>
+
+                    <form class="space-y-4" action="../controllers/customercontroller.php" method="post">
                         <div>
-                            <input type="text" placeholder="First Name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm">
+                            <input type="text" name="firstName"  placeholder="First Name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm">
                         </div>
                         <div>
-                            <input type="text" placeholder="Last Name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm">
+                            <input type="text" name="lastName" placeholder="Last Name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm">
                         </div>
                         <div>
-                            <input type="email" placeholder="Email Address" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm">
+                            <input type="email" name="email" placeholder="Email Address" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm">
                         </div>
                         <div>
-                            <input type="text" placeholder="Shipping Address" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm">
+                            <input type="text" name="address" placeholder="Shipping Address" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm">
                         </div>
                         <div>
-                            <input type="tel" placeholder="Contact Number" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm">
+                            <input type="tel" name="contact" placeholder="Contact Number" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm">
                         </div>
                         <div>
-                            <input type="text" placeholder="Username" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm">
+                            <input type="text" name="username" placeholder="Username" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm">
                         </div>
                         <div>
-                            <input type="password" placeholder="Password" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm">
+                            <input type="password" name="password" placeholder="Password" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm">
                         </div>
                         <div>
-                            <input type="password" placeholder="Confirm Password" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm">
+                            <input type="password" name="confirmPassword" placeholder="Confirm Password" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm">
                         </div>
                         <div>
                             <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black">
