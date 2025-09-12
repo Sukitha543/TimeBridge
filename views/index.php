@@ -1,6 +1,5 @@
 <?php
   $title = "Home Page";
-  require_once("../includes/meta.php");
   require_once("../includes/header.php");
   
 ?>
@@ -13,7 +12,7 @@
         Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. 
         Elit sunt amet fugiat veniam occaecat fugiat aliqua.
       </p>
-      <a href="login.php" class="inline-block bg-black text-white px-6 py-3 rounded hover:bg-gray-900">
+      <a href="login.php" class="inline-block bg-black  text-white px-6 py-3 rounded hover:bg-gray-900">
         Login to Browse Our Products
       </a>
     </div>

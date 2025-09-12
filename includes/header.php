@@ -1,5 +1,9 @@
+<?php 
+require_once "meta.php"
+?>
 
-<body class="font-sans text-gray-800">
+
+<body class= "font-family-heading color-gray-600">
 
   <!-- Navbar -->
 <header class="flex items-center justify-between px-6 py-4 shadow-sm">
