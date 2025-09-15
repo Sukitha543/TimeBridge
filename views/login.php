@@ -1,6 +1,7 @@
 <?php
 session_start();
 $title = "Login - TimeBridge";
+require_once "../routes.php";
 require_once("../includes/meta.php");
 ?>
 
