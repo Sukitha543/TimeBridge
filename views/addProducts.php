@@ -37,30 +37,30 @@ requireRole("admin");
                     <label class="block text-gray-700 font-medium mb-2" for="brand">Brand</label>
                     <select name="brand" id="brand" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black">
                         <option value="">Select Brand</option>
-                        <option value="Rolex" <?= old('brand')=='Rolex'?'selected':'' ?>>Rolex</option>
-                        <option value="Omega" <?= old('brand')=='Omega'?'selected':'' ?>>Omega</option>
-                        <option value="Seiko" <?= old('brand')=='Seiko'?'selected':'' ?>>Seiko</option>
-                        <option value="Casio" <?= old('brand')=='Casio'?'selected':'' ?>>Casio</option>
-                        <option value="Fossil" <?= old('brand')=='Fossil'?'selected':'' ?>>Fossil</option>
+                        <option value="Rolex" <?= old_add('brand')=='Rolex'?'selected':'' ?>>Rolex</option>
+                        <option value="Omega" <?= old_add('brand')=='Omega'?'selected':'' ?>>Omega</option>
+                        <option value="Seiko" <?= old_add('brand')=='Seiko'?'selected':'' ?>>Seiko</option>
+                        <option value="Casio" <?= old_add('brand')=='Casio'?'selected':'' ?>>Casio</option>
+                        <option value="Fossil" <?= old_add('brand')=='Fossil'?'selected':'' ?>>Fossil</option>
                     </select>
                 </div>
 
                 <!-- Model -->
                 <div>
                     <label class="block text-gray-700 font-medium mb-2" for="model">Model</label>
-                    <input type="text" name="model" id="model" value="<?= old('model')?>" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black">
+                    <input type="text" name="model" id="model" value="<?= old_add('model')?>" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black">
                 </div>
 
                 <!-- Product Code -->
                 <div>
                     <label class="block text-gray-700 font-medium mb-2" for="productcode">Product Code</label>
-                    <input type="text" name="productcode" id="productcode" value="<?= old('productcode') ?>" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black">
+                    <input type="text" name="productcode" id="productcode" value="<?= old_add('productcode') ?>" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black">
                 </div>
 
                 <!-- Diameter -->
                 <div>
                     <label class="block text-gray-700 font-medium mb-2" for="diameter">Diameter</label>
-                    <input type="text" name="diameter" id="diameter" value="<?= old('diameter') ?>" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black">
+                    <input type="text" name="diameter" id="diameter" value="<?= old_add('diameter') ?>" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black">
                 </div>
 
                 <!-- Type Dropdown -->
@@ -68,8 +68,8 @@ requireRole("admin");
                     <label class="block text-gray-700 font-medium mb-2" for="type">Type</label>
                     <select name="type" id="type" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black">
                         <option value="">Select Type</option>
-                        <option value="Male" <?= old('type')=='Male'?'selected':'' ?>>Male</option>
-                        <option value="Female" <?= old('type')=='Female'?'selected':'' ?>>Female</option>
+                        <option value="Male" <?= old_add('type')=='Male'?'selected':'' ?>>Male</option>
+                        <option value="Female" <?= old_add('type')=='Female'?'selected':'' ?>>Female</option>
                     </select>
                 </div>
 
@@ -78,8 +78,8 @@ requireRole("admin");
                     <label class="block text-gray-700 font-medium mb-2" for="material">Material</label>
                     <select name="material" id="material" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black">
                         <option value="">Select Material</option>
-                        <option value="Plastic" <?= old('material')=='Plastic'?'selected':'' ?>> Plastic</option>
-                        <option value="Steel" <?= old('material')=='Steel'?'selected':'' ?>> Steel</option>
+                        <option value="Plastic" <?= old_add('material')=='Plastic'?'selected':'' ?>> Plastic</option>
+                        <option value="Steel" <?= old_add('material')=='Steel'?'selected':'' ?>> Steel</option>
                     </select>
                 </div>
 
@@ -88,33 +88,33 @@ requireRole("admin");
                     <label class="block text-gray-700 font-medium mb-2" for="strap">Strap</label>
                     <select name="strap" id="strap" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black">
                         <option value="">Select Strap</option>
-                        <option value="Leather" <?= old('strap')=='Leather'?'selected':'' ?>>Leather </option>
-                        <option value="Steel" <?= old('strap')=='Steel'?'selected':'' ?>>Steel</option>
+                        <option value="Leather" <?= old_add('strap')=='Leather'?'selected':'' ?>>Leather </option>
+                        <option value="Steel" <?= old_add('strap')=='Steel'?'selected':'' ?>>Steel</option>
                     </select>
                 </div>
 
                 <!-- Water Resistance -->
                 <div>
                     <label class="block text-gray-700 font-medium mb-2" for="water_resistence">Water Resistence</label>
-                    <input type="text" name="water_resistence" id="water_resistence" value= "<?= old('water_resistence') ?>" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black">
+                    <input type="text" name="water_resistence" id="water_resistence" value= "<?= old_add('water_resistence') ?>" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black">
                 </div>
 
                 <!-- Calibre -->
                 <div>
                     <label class="block text-gray-700 font-medium mb-2" for="calibre">Calibre</label>
-                    <input type="text" name="calibre" id="calibre" value="<?= old('calibre') ?>" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black">
+                    <input type="text" name="calibre" id="calibre" value="<?= old_add('calibre') ?>" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black">
                 </div>
 
                 <!-- Price -->
                 <div>
                     <label class="block text-gray-700 font-medium mb-2" for="price">Price</label>
-                    <input type="number" name="price" id="price" value="<?= old('price') ?>" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black">
+                    <input type="number" name="price" id="price" value="<?= old_add('price') ?>" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black">
                 </div>
 
                 <!-- Quantity -->
                 <div>
                     <label class="block text-gray-700 font-medium mb-2" for="quantity">Quantity</label>
-                    <input type="number" name="quantity" id="quantity" value="<?= old('quantity') ?>" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black">
+                    <input type="number" name="quantity" id="quantity" value="<?= old_add('quantity') ?>" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black">
                 </div>
 
                 <!-- Image -->

@@ -13,7 +13,6 @@ function getSessionMessage($type){
     return false;
 }
 ?>
-
 <body class="bg-gray-100 text-gray-800 font-sans flex flex-col min-h-screen">
 <main class="flex-grow flex items-center justify-center p-4">
     <div class="bg-white rounded-lg shadow-xl w-full max-w-4xl flex flex-col lg:flex-row overflow-hidden">

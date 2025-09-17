@@ -6,7 +6,9 @@ $routes = [
     'customer_dashboard' => '../views/customer/dashboard.php',
     'customer_register' => '../views/customerRegister.php',
     'admin_register' => '../views/adminRegister.php',
-    'add_product' => '../controllers/addController.php',
+    'add_product' => '../views/addProducts.php',
+    'view_product' => '../views/viewProducts.php',
+    'manage_product' => '../views/manageProducts.php',
 ];
 
 

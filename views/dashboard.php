@@ -1,6 +1,5 @@
 <?php
 $title ="Admin Dashboard";
-require_once("../includes/meta.php");
 require_once ("../includes/admin/adminHeader.php");
 require_once("../includes/auth.php");
 requireRole("admin");

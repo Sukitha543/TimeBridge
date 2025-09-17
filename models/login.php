@@ -1,5 +1,5 @@
 <?php
-require_once "dbh_config.php";
+//require_once "dbh_config.php";
 
 class login extends Dbh{
 

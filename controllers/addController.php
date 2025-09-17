@@ -51,32 +51,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         empty($calibre) && empty($price) && empty($quantity) && empty($_FILES['image']['name'])
     ) {
         $_SESSION['error'] = "All fields are required!";
-        header("Location: ../views/addProducts.php");
+        redirectTo('add_product', $routes);
         exit();
     }
 
     // Validate dropdown selections
     if (!in_array($brand, $allowedBrands)) {
         $_SESSION['error'] = "Invalid brand selected!";
-        header("Location: ../views/addProducts.php");
+        redirectTo('add_product', $routes);
         exit();
     }
 
     if (!in_array($type, $allowedTypes)) {
         $_SESSION['error'] = "Invalid type selected!";
-        header("Location: ../views/addProducts.php");
+        redirectTo('add_product', $routes);
         exit();
     }
 
     if (!in_array($material, $allowedMaterials)) {
         $_SESSION['error'] = "Invalid material selected!";
-        header("Location: ../views/addProducts.php");
+        redirectTo('add_product', $routes);
         exit();
     }
 
     if (!in_array($strap, $allowedStraps)) {
         $_SESSION['error'] = "Invalid strap selected!";
-        header("Location: ../views/addProducts.php");
+        redirectTo('add_product', $routes);
         exit();
     }
 
@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!in_array($ext, $allowedExts)) {
         $_SESSION['error'] = "Invalid image type. Only JPG, PNG, GIF allowed.";
-        header("Location: ../views/addProducts.php");
+        redirectTo('add_product', $routes);
         exit();
     }
 
@@ -105,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!move_uploaded_file($fileTmp, $filePath)) {
         $_SESSION['error'] = "Failed to upload image.";
-        header("Location: ../views/addProducts.php");
+        redirectTo('add_product', $routes);
         exit();
     }
 
@@ -114,12 +114,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     );
 
     if ($product->add()) {
-    header("Location: ../views/addProducts.php");
+    redirectTo('add_product', $routes);
     clearOldInputs();
     exit();
+
 }
  
-
-    
+  
    
 }

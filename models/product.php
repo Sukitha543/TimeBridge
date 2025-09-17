@@ -1,5 +1,5 @@
 <?php
-
+require_once ("../models/dbh_config.php");
 class Product extends Dbh {
 
     private $brand;
@@ -73,8 +73,74 @@ class Product extends Dbh {
    
 }
 
-    public function display (){}
-    public function update() {}
-    public function delete(){}
+
+    public function update() {
+        try {
+            $pdo = $this->connect();
+
+            $stmt = $pdo->prepare("UPDATE products SET brand=?, model=?, type=?, diameter=?, material=?, strap=?, water_resistence=?, calibre=?, price=?, quantity=?, image=? WHERE productCode=?");
+            $stmt->execute([
+                $this->brand, 
+                $this->model, 
+                $this->type,
+                $this->diameter,
+                $this->material, 
+                $this->strap, 
+                $this->resistence, 
+                $this->calibre,
+                $this->price, 
+                $this->quantity, 
+                $this->image, 
+                $this->productCode
+            ]);
+
+            $_SESSION['success'] = "Product updated successfully!";
+            return true;
+
+        } catch(PDOException $e) {
+            $_SESSION['error'] = "Database error: ".$e->getMessage();
+            return false;
+        }
+    }
+
+    public function delete(){
+         try {
+            $pdo = $this->connect();
+
+            $stmt = $pdo->prepare("DELETE FROM products WHERE productCode=?");
+            $stmt->execute([$this->productCode]);
+
+            if ($stmt->rowCount() == 0) {
+                $_SESSION['error'] = "Product not found!";
+                return false;
+            }
+            else{
+                 $_SESSION['success'] = "Product deleted successfully!";
+                 return true;
+            }
+
+
+        } catch(PDOException $e) {
+            $_SESSION['error'] = "Database error: ".$e->getMessage();
+            return false;
+        }
+    }
+
+
+     public function findByCode($productCode) {                                                           
+            try {
+            $pdo = $this->connect();
+
+            $stmt = $pdo->prepare("SELECT * FROM products WHERE productCode = ?");
+            $stmt->execute([$productCode]);
+            $product = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $product; // associative array of product details
+
+        } catch (PDOException $e) {
+            $_SESSION['error'] = "Database error: " . $e->getMessage();
+            return false;
+        }
+    }
+    
 
 }   
