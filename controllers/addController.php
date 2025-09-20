@@ -41,19 +41,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'water_resistence' => $resistence,
         'calibre' => $calibre,
         'price' => $price,
-        'quantity' => $quantity
+        'quantity' => $quantity,
+        'image' => $_FILES['image']['name'],
+
     ];
 
     // Validate required fields
     if (
-        empty($brand) && empty($model) && empty($productCode) && empty($diameter) &&
-        empty($type) && empty($material) && empty($strap) && empty($resistence) &&
-        empty($calibre) && empty($price) && empty($quantity) && empty($_FILES['image']['name'])
+        empty($brand) || empty($model) || empty($productCode) || empty($diameter) ||
+        empty($type) || empty($material) || empty($strap) || empty($resistence) ||
+        empty($calibre) || empty($price) || empty($quantity) || empty($_FILES['image']['name'])
     ) {
         $_SESSION['error'] = "All fields are required!";
         redirectTo('add_product', $routes);
         exit();
     }
+
+
 
     // Validate dropdown selections
     if (!in_array($brand, $allowedBrands)) {
@@ -79,6 +83,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         redirectTo('add_product', $routes);
         exit();
     }
+
+    if (!in_array($strap, $allowedStraps)) {
+        $_SESSION['error'] = "Invalid strap selected!";
+        redirectTo('add_product', $routes);
+        exit();
+    }
+
 
     // Validate image
     $allowedExts = ['jpg', 'jpeg', 'png', 'gif'];
@@ -113,13 +124,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $product = new Product( $brand, $model, $productCode, $type, $diameter, $material, $strap, $resistence, $calibre, $price, $quantity, $fileUrl
     );
 
-    if ($product->add()) {
+   if ($product->add()) {
+    clearOldInputs(); // clear old inputs only on success
+    //$_SESSION['success'] = "Product added successfully!";
     redirectTo('add_product', $routes);
-    clearOldInputs();
     exit();
-
+    } else {
+    redirectTo('add_product', $routes); // redirect on error
+    exit();
+    }
 }
  
-  
-   
-}
+

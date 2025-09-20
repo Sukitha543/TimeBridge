@@ -63,4 +63,16 @@ class Customer extends User
             return false;
         }
     }
+
+    public function getCustomerCount() {
+        try {
+            $stmt = $this->connect()->prepare("SELECT COUNT(*) as total FROM customer");
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result['total'] ?? 0;
+        } catch (PDOException $e) {
+            error_log("Error counting products: " . $e->getMessage());
+            return 0; // fallback
+        }
+    }
 }

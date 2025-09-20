@@ -1,6 +1,13 @@
 <?php
-    session_start();
-    require_once("../models/dbh_config.php");
-    require_once("../models/product.php");
+require_once "../models/Product.php";
+require_once "../routes.php";
 
-    
+
+$productModel = new Product('', '', '', '', '', '', '', '', '', '', '', '');
+$products = $productModel->getAllProducts();
+
+if (empty($products)) {
+    $_SESSION['error'] = "No products found!";
+}
+// Load the view
+require_once "../views/viewProducts.php";

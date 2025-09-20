@@ -142,5 +142,30 @@ class Product extends Dbh {
         }
     }
     
+    public function getAllProducts() {
+    try {
+        $pdo = $this->connect();
+        $stmt = $pdo->query("SELECT * FROM products");
+        $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-}   
+        return $products ?: [];
+    } catch (PDOException $e) {
+        $_SESSION['error'] = "Database error: " . $e->getMessage();
+        return [];
+    } 
+}
+
+    public function getProductCount() {
+        try {
+            $stmt = $this->connect()->prepare("SELECT COUNT(*) as total FROM products");
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result['total'] ?? 0;
+        } catch (PDOException $e) {
+            error_log("Error counting products: " . $e->getMessage());
+            return 0; // fallback
+        }
+
+}
+
+} 

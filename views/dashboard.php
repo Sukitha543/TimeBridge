@@ -1,10 +1,11 @@
 <?php
 $title ="Admin Dashboard";
-require_once ("../includes/admin/adminHeader.php");
 require_once("../includes/auth.php");
+require_once("../controllers/adminDashboardController.php");
 requireRole("admin");
 ?>
 <body class="bg-gray-100 min-h-screen flex flex-col">
+ <?php require_once ("../includes/admin/adminHeader.php"); ?>
     <!-- Main Content -->
 <main class="flex-grow container mx-auto px-4 py-8">
     <h1 class="text-4xl font-bold text-gray-800 mb-4">Welcome <?php echo htmlspecialchars($_SESSION['username']); ?></h1>
@@ -13,13 +14,13 @@ requireRole("admin");
         <!-- Number of Users -->
         <div class="bg-white shadow rounded-lg p-6 hover:shadow-lg transition duration-300">
             <h2 class="text-xl font-semibold mb-2">Number of Users</h2>
-            <p class="text-3xl font-bold text-blue-600">1,234</p>
+            <p class="text-3xl font-bold text-blue-600"><?= htmlspecialchars($customerCount) ?></p>
         </div>
 
         <!-- Number of Products -->
         <div class="bg-white shadow rounded-lg p-6 hover:shadow-lg transition duration-300">
             <h2 class="text-xl font-semibold mb-2">Number of Products</h2>
-            <p class="text-3xl font-bold text-green-600">567</p>
+            <p class="text-3xl font-bold text-green-600"> <?= htmlspecialchars($productCount) ?></p>
         </div>
 
         <!-- Total Sales -->

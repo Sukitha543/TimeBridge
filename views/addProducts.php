@@ -1,13 +1,12 @@
 <?php
 $title = "Add New Watch";
 require_once("../includes/meta.php");
-require_once("../includes/admin/adminHeader.php");
 require_once("../functions/oldInputs.php");
 require_once("../includes/auth.php");
 requireRole("admin");
 ?>
 <body class="bg-gray-100 min-h-screen flex flex-col">
-
+<?php require_once("../includes/admin/adminHeader.php");?>
     <!-- Messages -->
     <div class="container mx-auto px-4 mt-6">
         <?php if(isset($_SESSION['error'])): ?>
