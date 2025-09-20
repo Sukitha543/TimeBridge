@@ -38,6 +38,7 @@ requireRole("customer");
 
                         <!-- Product Info -->
                         <h3 class="text-2xl font-bold mb-1"><?= htmlspecialchars($product['brand']) ?> - <?= htmlspecialchars($product['model']) ?></h3>
+                        <p class="text-lg text-gray-600 mb-2" hidden><strong>Product Code:</strong> <?= htmlspecialchars($product['productcode']) ?></p>
                         <p class="text-lg text-gray-600 mb-2"><strong>Type:</strong> <?= htmlspecialchars($product['type']) ?></p>
                         <p class="text-lg text-gray-600 mb-2"><strong>Diameter:</strong> <?= htmlspecialchars($product['diameter']) ?></p>
                         <p class="text-lg text-gray-600 mb-2"><strong>Material:</strong> <?= htmlspecialchars($product['material']) ?></p>
@@ -50,6 +51,7 @@ requireRole("customer");
                         <!-- Add to Cart Button -->
                        <!-- Add to Cart Form -->
                     <form action="../controllers/cartController.php" method="POST" class="w-full">
+                        <input type="hidden" name="productcode" value="<?= htmlspecialchars($product['productcode']) ?>">
                         <input type="hidden" name="image" value="<?= htmlspecialchars($product['image']) ?>">
                         <input type="hidden" name="brand" value="<?= htmlspecialchars($product['brand']) ?>">
                         <input type="hidden" name="model" value="<?= htmlspecialchars($product['model']) ?>">

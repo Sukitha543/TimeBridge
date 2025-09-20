@@ -10,6 +10,7 @@ if (!isset($_SESSION['cart'])) {
 
 // ADD TO CART
 if (isset($_POST['add_to_cart'])) {
+    $productCode = $_POST['productcode'];
     $brand = $_POST['brand'];
     $model = $_POST['model'];
     $price = $_POST['price'];
@@ -22,6 +23,7 @@ if (isset($_POST['add_to_cart'])) {
         $_SESSION['error'] = "⚠️ This watch is already in your cart!";
     } else {
         $_SESSION['cart'][$productKey] = [
+            "productcode" => $productCode,
             "brand" => $brand,
             "model" => $model,
             "price" => $price,
