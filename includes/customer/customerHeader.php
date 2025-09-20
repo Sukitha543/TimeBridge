@@ -15,7 +15,7 @@ $base_url = "http://localhost/TimeBridge/";
     </nav>
   </div>
   <div class="flex items-center space-x-4">
-            <a href="<?= $base_url?>views/checkout.php"><i class="fa-solid fa-cart-plus text-white text-3xl"  ></i></a>
+            <a href="<?= $base_url?>controllers/checkoutController.php"><i class="fa-solid fa-cart-plus text-white text-3xl"  ></i></a>
             <a href="#"><i class="fa-solid fa-user text-white text-3xl"></i></a>
         </div>
     </header>

@@ -9,7 +9,7 @@ $routes = [
     'add_product' => '../views/addProducts.php',
     'view_product' => '../views/viewProducts.php',
     'manage_product' => '../views/manageProducts.php',
-    'checkout' => '../views/checkout.php',
+    'checkout' => '../controllers/checkoutController.php',
     
 ];
 
