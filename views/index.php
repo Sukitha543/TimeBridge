@@ -22,9 +22,9 @@
       <img src="../src/images/hero.jpg" alt="Luxury Watch" class="rounded-lg shadow-lg max-h-[400px]">
     </div>
   </section>
-
-  <?php
+   <?php
   require_once("../includes/footer.php");
   ?>
+<script src="../script/script.js" defer></script>
 </body>
 </html>

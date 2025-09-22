@@ -12,8 +12,9 @@
                     <a href="<?= $base_url ?>views/addProducts.php" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-600">Add Products</a>
                     <a href="<?= $base_url ?>views/manageProducts.php" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-600">Manage Products</a>
                     <a href="<?= $base_url ?>controllers/productViewController.php"class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-600">View Products</a>
-                    <a href="manage_orders.php" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-600">Manage Orders</a>
-                    <a href="view_customers.php" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-600">View Customer Details</a>
+                    <a href="<?= $base_url ?>controllers/manageOrdersController.php" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-600">Manage Orders</a>
+                    <a href="<?= $base_url ?>views/searchCustomers.php" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-600">View Customer Details</a>
+                    <a href="<?= $base_url ?>views/logout.php" id="logoutLink" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-600">Logout</a>
                  </div>
             </div>
         </div>

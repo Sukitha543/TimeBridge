@@ -5,9 +5,9 @@ require_once("../controllers/productViewController.php");
 require_once("../includes/auth.php");
 requireRole("admin");
 ?>
-<body>
-<div class="container mx-auto px-4 mt-6">
 
+<body class="bg-gray-100 min-h-screen flex flex-col">
+<div class="container mx-auto px-4 mt-6">
     <!-- Show error or success -->
     <?php if (isset($_SESSION['error'])): ?>
         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
@@ -41,7 +41,9 @@ requireRole("admin");
         </div>
     <?php endif; ?>
 </div>
-<?php require_once("../includes/dashboardFooter.php"); ?>
+<script src="../script/script.js"></script> 
 </body>
+<?php require_once("../includes/dashboardFooter.php"); ?>
+</html>
 
 

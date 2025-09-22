@@ -1,7 +1,12 @@
 <?php
 require_once "../includes/auth.php";
+require_once("../models/product.php");
+require_once("../models/order.php");
 require_once ("../routes.php");
 requireRole("customer");
+
+$productModel = new Product("","","","","","","","","","","","");
+$orderModel = new Order();
 
 // Check if cart is empty
 if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
@@ -9,6 +14,11 @@ if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
     redirectTo("customer_dashboard", $routes);
     exit;
 }
+
+    $total = 0;
+        foreach ($_SESSION['cart'] as $item) {
+            $total += $item['price']; 
+        }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['checkout'])) {
     $name = trim($_POST['full_name']);
@@ -47,13 +57,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['checkout'])) {
        $_SESSION['error'] = "Cardholder must contain only letters and spaces.";
     }
     else{
-    // If everything is valid, clear the cart + redirect
-    unset($_SESSION['cart']);
-    $_SESSION['success'] = "✅ Order made successfully! Thank you for your purchase.";
-    redirectTo("customer_dashboard", $routes);
-    exit;
+         $orderId = $orderModel->createOrder($_SESSION['userid'], $total);
+        foreach ($_SESSION['cart'] as $item) {
+            $orderModel->addOrderItem($orderId, $item['productcode'], 1, $item['price']);
+            $productModel->reduceQuantity($item['productcode'], 1);
+     }
+        unset($_SESSION['cart']);
+        $_SESSION['success'] = "✅ Order made successfully! Thank you for your purchase.";
+        redirectTo("customer_dashboard", $routes);
+        exit;
     }
 }
 
 // If cart has items, load checkout view
-require_once "../views/checkout.php";
+require_once ("../views/checkout.php");

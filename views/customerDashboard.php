@@ -1,6 +1,5 @@
 <?php
 require_once("../includes/auth.php");
-require_once("../controllers/customerDashboardController.php");
 $title ="Customer Dashboard";
 requireRole("customer");
 ?>
@@ -69,6 +68,7 @@ requireRole("customer");
     </main>
     <?php require_once("../includes/customer/customerFooter.php"); ?>
 </body>
-</html>  
+</html> 
+<script src="../script/script.js"></script> 
 </body>
 </html>

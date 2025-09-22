@@ -1,6 +1,10 @@
 <?php
+require_once("../models/product.php");
 require_once("../routes.php");
 session_start();
+
+
+$productModel = new Product("","","","","","","","","","","","");
 
 
 // If cart doesn’t exist, create it
@@ -21,7 +25,12 @@ if (isset($_POST['add_to_cart'])) {
 
     if (isset($_SESSION['cart'][$productKey])) {
         $_SESSION['error'] = "⚠️ This watch is already in your cart!";
-    } else {
+    }
+    elseif (!$productModel->isInStock($productCode)) {
+        $_SESSION['error'] = "⚠️ Sorry, $brand $model is out of stock!";
+    } 
+    else 
+    {
         $_SESSION['cart'][$productKey] = [
             "productcode" => $productCode,
             "brand" => $brand,

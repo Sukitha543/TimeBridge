@@ -168,4 +168,18 @@ class Product extends Dbh {
 
 }
 
+    public function reduceQuantity($productCode, $amount = 1) {
+        $sql = "UPDATE products SET quantity = quantity - ? WHERE productCode = ? AND quantity > 0";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$amount, $productCode]);
+    }
+
+    public function isInStock($productCode) {
+        $sql = "SELECT quantity FROM products WHERE productCode = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$productCode]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $row && $row['quantity'] > 0;
+    }
+
 } 

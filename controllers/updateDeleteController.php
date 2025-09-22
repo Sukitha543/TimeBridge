@@ -32,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $resistence = sanitize($_POST['water_resistence'] ?? '');
         $calibre = sanitize($_POST['calibre'] ?? '');
         $price = sanitize($_POST['price'] ?? '');
+        $quantity = sanitize($_POST['quantity'] ?? '');
        
         // Save old inputs in case of error
         $_SESSION['old_manage_product'] = [
@@ -45,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'water_resistence' => $resistence,
             'calibre' => $calibre,
             'price' => $price,
+            'quantity' => $quantity,
            
         ];
 
@@ -52,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (
             empty($brand) || empty($model) || empty($diameter) || empty($type) ||
             empty($material) || empty($strap) || empty($resistence) || empty($calibre) ||
-            empty($price)
+            empty($price) || empty($quantity)
         ) {
             $_SESSION['error'] = "All fields are required!";
             redirectTo('manage_product', $routes);

@@ -44,7 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'water_resistence' => $product['water_resistence'],
             'calibre' => $product['calibre'],
             'price' => $product['price'],
-            'image' => $product['image']
+            'quantity' => $product['quantity'],
+            'image' => $product['image'],
         ];
     }
 

@@ -27,4 +27,6 @@ function clearOldManageInputs() {
     if (isset($_SESSION['old_manage_product'])) {
         unset($_SESSION['old_manage_product']);
     }
+
+
 }

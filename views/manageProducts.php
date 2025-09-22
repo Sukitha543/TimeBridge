@@ -6,7 +6,7 @@ require_once("../includes/auth.php");
 requireRole("admin");
 ?>
 
-<!-- Messages -->
+<body class="bg-gray-100 min-h-screen flex flex-col">
 <div class="container mx-auto px-4 mt-6">
     <?php if(isset($_SESSION['error'])): ?>
         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4" role="alert">
@@ -131,6 +131,12 @@ requireRole("admin");
                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black">
             </div>
 
+              <div>
+                <label class="block text-gray-700 font-medium mb-2">Quantity</label>
+                <input type="number" name="quantity" value="<?= old_manage('quantity') ?>"
+                       class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black">
+            </div>
+
             <!-- Image -->
             <div class="md:col-span-2">
                 <label class="block text-gray-700 font-medium mb-2">Image</label>
@@ -148,7 +154,7 @@ requireRole("admin");
         </div>
     </form>
 </main>
-<script>
-<?php
-require_once("../includes/dashboardFooter.php");
-?>
+<script src="../script/script.js"></script> 
+</body>
+<?php require_once("../includes/dashboardFooter.php");?>
+</html>

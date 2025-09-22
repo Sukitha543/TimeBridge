@@ -75,4 +75,64 @@ class Customer extends User
             return 0; // fallback
         }
     }
+
+      // Fetch customer details by user ID
+    public function getCustomerById($userId) {
+        $pdo = $this->connect();
+        $stmt = $pdo->prepare("SELECT * FROM Customer WHERE userid = ?");
+        $stmt->execute([$userId]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    // Update customer details
+    public function updateCustomer($userId, $firstName, $lastName, $email, $shippingAddress, $contactNumber) {
+        try {
+            $pdo = $this->connect();
+
+            // Optional: check if email is used by another customer
+            $stmt = $pdo->prepare("SELECT * FROM Customer WHERE email = ? AND userid != ?");
+            $stmt->execute([$email, $userId]);
+            if ($stmt->rowCount() > 0) {
+                $_SESSION['error'] = "Email is already used by another account!";
+                return false;
+            }
+
+            $stmt = $pdo->prepare("
+                UPDATE Customer 
+                SET firstname = ?, lastname = ?, email = ?, shippingaddress = ?, contactnumber = ? 
+                WHERE userid = ?
+            ");
+            $stmt->execute([$firstName, $lastName, $email, $shippingAddress, $contactNumber, $userId]);
+            $_SESSION['success'] = "✅ Profile updated successfully!";
+            return true;
+        } catch(PDOException $e) {
+            $_SESSION['error'] = "Database error: " . $e->getMessage();
+            return false;
+        }
+    }
+
+    // Delete customer account
+    public function deleteCustomer($userId) {
+       $pdo = $this->connect();
+        try {
+            $pdo->beginTransaction();
+
+            // Delete from Customer
+            $stmt1 = $pdo->prepare("DELETE FROM Customer WHERE userid = ?");
+            $stmt1->execute([$userId]);
+
+            // Delete from Users
+            $stmt2 = $pdo->prepare("DELETE FROM Users WHERE userid = ?");
+            $stmt2->execute([$userId]);
+
+            $pdo->commit();
+            $_SESSION['success'] = "✅ Your profile has been deleted successfully.";
+            session_destroy();
+        } catch(PDOException $e) {
+            $pdo->rollBack();
+            $_SESSION['error'] = "Database error: " . $e->getMessage();
+        }
+            }
+
+
 }
