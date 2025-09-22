@@ -12,11 +12,13 @@ function pay(form) {
 let form = document.getElementById("checkout"); 
 pay(form);
 
- function deleteCustomer (deleteBtn) {
-     if (deleteBtn) {
+ 
+document.addEventListener("DOMContentLoaded", function () {
+    const deleteBtn = document.getElementById('deleteBtn');
+    if (deleteBtn) {
         deleteBtn.addEventListener('click', function() {
             if (confirm("⚠️ Are you sure you want to delete your profile? This action cannot be undone.")) {
-                const confirmInput = document.getElementById('deleteBtn');
+                const confirmInput = document.getElementById('confirm_delete');
                 if (confirmInput) {
                     confirmInput.value = "yes";
                 }
@@ -24,7 +26,11 @@ pay(form);
             }
         });
     }
-}
+});
+
+
+
+
 
 function logout(logoutLink){
 document.addEventListener("DOMContentLoaded", function () {
@@ -44,9 +50,4 @@ logout(logoutLink);
 
 
 
-const menuBtn = document.getElementById("menu-btn");
-const mobileMenu = document.getElementById("mobile-menu");
 
-menuBtn.addEventListener("click", () => {
-  mobileMenu.classList.toggle("hidden");
-});

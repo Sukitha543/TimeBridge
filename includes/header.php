@@ -2,9 +2,6 @@
 require_once "meta.php"
 ?>
 
-
-<body class= "font-family-heading color-gray-600">
-
   <!-- Navbar -->
 <header class="flex items-center justify-between px-6 py-4 shadow-sm">
   <!-- Left side: Logo + Nav -->

@@ -27,12 +27,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Check for confirmation
         if (isset($_POST['confirm_delete']) && $_POST['confirm_delete'] === 'yes') {
             if ($customerModel->deleteCustomer($userId)) {
-                $_SESSION['success'] = "✅ Account deleted successfully!";
+                session_unset();
+                session_destroy();
                 redirectTo("login", $routes);
                 exit;
             }
         } else {
-            $_SESSION['error'] = "⚠️ You must confirm deletion!";
+            $_SESSION['error'] = "You must confirm deletion!";
             redirectTo("manage_customer_details", $routes);
             exit;
         }
@@ -40,4 +41,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 
-require_once "../views/manageCustomerDetails.php";
+require_once "../views/userProfile.php";

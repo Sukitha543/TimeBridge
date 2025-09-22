@@ -2,9 +2,10 @@
    $title = "AboutUs";
    require_once("../includes/header.php");
 ?>
+    <body class="font-family-heading color-gray-600">
     <section class="flex flex-col lg:flex-row items-center lg:items-start p-8 lg:p-16">
         <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-12">
-            <h1 class="text-4xl lg:text-5xl font-bold mb-4">About US</h1>
+            <h1 class="text-4xl lg:text-5xl font-bold mb-4">About Us</h1>
             <p class="text-gray-600 leading-relaxed mb-6">
                  We take pride in being an official agent for some of the world's most prestigious luxury watch brands. Our curated collection features exquisite timepieces for both men and women, designed to complement every style and occasion.
                 We specialize in online sales, ensuring that your luxury watch reaches you safely and securely, wherever you are. With every purchase, we guarantee authenticity, care, and a seamless shopping experience, so you can enjoy the elegance of luxury timepieces with complete peace of mind."</P>

@@ -34,7 +34,7 @@ requireRole("admin");
             <?php unset($_SESSION['customer_details']); ?>
         <?php endif; ?>
     </main>
+    <?php require_once("../includes/admin/dashboardFooter.php")?>
     <script src="../script/script.js" defer></script>
 </body>
-<?php require_once("../includes/dashboardFooter.php")?>
 </html>

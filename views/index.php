@@ -1,8 +1,9 @@
 <?php
   $title = "Home Page";
   require_once("../includes/header.php");
-  
 ?>
+
+<body class="font-family-heading color-gray-600">
   <!-- Hero Section -->
   <section class="grid grid-cols-1 md:grid-cols-2 items-center px-8 py-12 md:px-16 lg:px-24 gap-8">
     <!-- Left Content -->

@@ -6,11 +6,11 @@ requireRole("customer");
 
 <body class="bg-gray-100 text-gray-800 flex flex-col min-h-screen">
     <?php require_once ("../includes/customer/customerHeader.php"); ?>
-<main class="container mx-auto px-4 py-8">
+<main class="container flex-grow mx-auto px-4 py-8">
      <h1 class="text-3xl font-bold mb-6">Your Orders</h1>
      <?php if (empty($groupedOrders)): ?>
         <div class="p-6 text-4xl text-center font-bold">
-            ⚠️ No orders to display.
+             No orders to display.
         </div>
     <?php else: ?>
         <?php foreach ($groupedOrders as $orderId => $order): ?>
@@ -43,6 +43,8 @@ requireRole("customer");
         <?php endforeach; ?>
     <?php endif; ?>
 </main>
+<?php require_once("../includes/customer/customerFooter.php")?>
 <script src="../script/script.js"></script> 
 </body>
-<?php require_once("../includes/customer/customerFooter.php");
+</html>
+

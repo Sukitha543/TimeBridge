@@ -103,7 +103,7 @@ class Customer extends User
                 WHERE userid = ?
             ");
             $stmt->execute([$firstName, $lastName, $email, $shippingAddress, $contactNumber, $userId]);
-            $_SESSION['success'] = "✅ Profile updated successfully!";
+            $_SESSION['success'] = "Profile updated successfully!";
             return true;
         } catch(PDOException $e) {
             $_SESSION['error'] = "Database error: " . $e->getMessage();
@@ -126,11 +126,11 @@ class Customer extends User
             $stmt2->execute([$userId]);
 
             $pdo->commit();
-            $_SESSION['success'] = "✅ Your profile has been deleted successfully.";
-            session_destroy();
+            return true;
         } catch(PDOException $e) {
             $pdo->rollBack();
             $_SESSION['error'] = "Database error: " . $e->getMessage();
+            return false;
         }
             }
 

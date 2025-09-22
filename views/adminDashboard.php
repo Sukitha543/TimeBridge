@@ -23,7 +23,7 @@ requireRole("admin");
         </div>
 </main>
     <?php
-    require_once "../includes/dashboardFooter.php"; 
+    require_once "../includes/admin/dashboardFooter.php"; 
     ?>
 </body>
 <script src="../script/script.js" defer></script>

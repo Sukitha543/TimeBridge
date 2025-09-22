@@ -10,4 +10,4 @@ $customers = new Customer('','','','','','','');
 $productCount = $products->getProductCount();
 $customerCount = $customers->getCustomerCount();
 
-require_once ("../views/dashboard.php");
+require_once ("../views/adminDashboard.php");

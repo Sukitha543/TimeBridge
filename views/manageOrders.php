@@ -72,8 +72,8 @@ requireRole("admin");
         <?php endforeach; ?>
     <?php endif; ?>
 </main>
+<?php require_once("../includes/admin/dashboardFooter.php")?>
 <script src="../script/script.js"></script> 
- <?php require_once("../includes/dashboardFooter.php");?>
 </body>
 </html>
 

@@ -154,7 +154,7 @@ requireRole("admin");
         </div>
     </form>
 </main>
+<?php require_once("../includes/admin/dashboardFooter.php");?>
 <script src="../script/script.js"></script> 
 </body>
-<?php require_once("../includes/dashboardFooter.php");?>
 </html>
