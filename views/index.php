@@ -9,8 +9,7 @@
     <div>
       <h1 class="text-4xl font-bold mb-4">Find Your Perfect<br>Timepiece Online</h1>
       <p class="text-gray-600 mb-6">
-        Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. 
-        Elit sunt amet fugiat veniam occaecat fugiat aliqua.
+        From classic designs to modern masterpieces, each watch in our collection is meticulously crafted to combine precision, beauty, and legacy. Elevate your style with a timepiece that tells more than time—it tells your story.
       </p>
       <a href="login.php" class="inline-block bg-black  text-white px-6 py-3 rounded hover:bg-gray-900">
         Login to Browse Our Products
